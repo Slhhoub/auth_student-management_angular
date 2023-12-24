@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../shared/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +9,7 @@ import { AuthService } from '../../shared/auth.service';
 })
 export class DashboardComponent implements OnInit{
 
-  constructor(private auth:AuthService){}
+  constructor(private auth:AuthService,private route:Router){}
 
   ngOnInit(): void {
 
@@ -16,6 +17,10 @@ export class DashboardComponent implements OnInit{
 
   logout(){
     this.auth.logout();
+  }
+
+  adduser(){
+    this.route.navigate(['/user/add']);
   }
 
 }
