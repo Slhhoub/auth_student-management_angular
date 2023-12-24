@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+      <h1 class="font-weight-bold">Create Users</h1>
+    </div>
+    <div class="col d-flex align-items-center justify-content-end">
+      <a href="users/list" type="button" class="btn btn-primary">
+        Back <i class="fas fa-arrow-left"></i>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-6 m-auto shadow p-3 mb-5 bg-body rounded mt-5">
+    <form [formGroup]="adduser" (submit)="saveUser(adduser.value)">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"  name="email" formControlName="email">
+        <div class="alert alert-danger mt-2 " role="alert" *ngIf="(adduser.get('email')?.hasError('required') || adduser.get('email')?.hasError('email')) && adduser.get('email')?.touched">
+          error in email ??
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">First Name</label>
+        <input type="text" class="form-control" id="exampleInputFirstName"  name="first_name" formControlName="first_name">
+        <div class="alert alert-danger mt-2 " role="alert" *ngIf="adduser.get('first_name')?.hasError('required') && adduser.get('first_name')?.touched">
+          error in first_name ??
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Last Name</label>
+        <input type="text" class="form-control" id="exampleInputLastName"  name="last_name" formControlName="last_name">
+        <div class="alert alert-danger mt-2 " role="alert" *ngIf="adduser.get('last_name')?.hasError('required') && adduser.get('last_name')?.touched">
+          error in last_name ??
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">mobile</label>
+        <input type="text" class="form-control" id="exampleInputAvatar"  name="mobile" formControlName="mobile">
+        <div class="alert alert-danger mt-2 " role="alert" *ngIf="(adduser.get('mobile')?.hasError('required') || adduser.get('mobile')?.hasError('maxLength') || adduser.get('mobile')?.hasError('minLength')) && adduser.get('mobile')?.touched">
+          error in mobile ??
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!adduser.valid">add</button>
+    </form>
+  </div>
+</div>

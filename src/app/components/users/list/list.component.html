@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+      <h1 class="font-weight-bold">Users manage</h1>
+    </div>
+    <div class="col d-flex align-items-center justify-content-end">
+      <a routerLink="/user/add" type="button" class="btn btn-success">
+        Add User <i class="fas fa-plus"></i>
+      </a>
+    </div>
+  </div>
+
+  <table class="table table-striped  shadow-sm bg-body-tertiary rounded mt-5">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">first_name</th>
+        <th scope="col">last_name</th>
+        <th scope="col">email</th>
+        <th scope="col">moblie</th>
+        <th scope="col">action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of SudentList">
+        <th scope="row">{{ item.id }}</th>
+        <td> {{ item.first_name }} </td>
+        <td>{{ item.last_name }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.mobile }} </td>
+        <td><button type="button" class="btn btn-danger" (click)="deleteStudent(item)">remove</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-center">
+  </div>
+</div>

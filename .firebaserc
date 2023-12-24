@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "student-management-angul-cd872": {
+      "hosting": {
+        "auth": [
+          "student-management-angul-cd872"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "student-management-angul-cd872"
+  }
+}
